@@ -18,6 +18,9 @@
 // If the name of the waypoint is NOT Waypoint then it will use the name as the
 // script to run.  If the name is Waypoint then it will check the waypoint for
 // a string variable named sSpawnScript.  That will be the script to run.
+
+
+// Changes creatures head and skin to random colors (normal range for RL humans).
 void main()
 {
      object oMe=OBJECT_SELF;
