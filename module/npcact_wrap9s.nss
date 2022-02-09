@@ -24,7 +24,7 @@ void main()
      int iRace =  GetRacialType(OBJECT_SELF);
      int iGender = GetGender(OBJECT_SELF);
 // Qlippoth, check for LocalInt then run more code
-    if (GetLocalInt(oMe, "h") > 0);
+    if (GetLocalInt(oMe, "h") > 0)
         {
         SetCreatureBodyPart(CREATURE_PART_HEAD,Random(13)+1,OBJECT_SELF); // Qlippoth
         }
