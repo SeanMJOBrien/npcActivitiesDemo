@@ -1,8 +1,7 @@
 void main()
 {
     object oNPC=OBJECT_SELF;
-    //SetLocalInt(oNPC,"noheart",1);
-    SetLocalInt(oNPC,"nGNBDisabled",1);
+    SetLocalInt(oNPC,"noheart",1);
     AssignCommand(oNPC, ActionSpeakString("STOP!", TALKVOLUME_SHOUT));
     AssignCommand(oNPC,ActionDoCommand(ClearAllActions(FALSE)));
     AssignCommand(oNPC,ClearAllActions(FALSE));

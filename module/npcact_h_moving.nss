@@ -10,7 +10,7 @@
 #include "x3_inc_string"
 
 const int MOVE_DEBUG_ON = FALSE; // set to TRUE if you want movement debug messages
-const string MOVE_DEBUG_NPC = ""; // set to tag of specific NPC to debug its movement only
+const string MOVE_DEBUG_NPC = "Guard02"; // set to tag of specific NPC to debug its movement only
 
 /////////////////////////////////////////
 // PROTOTYPES
@@ -144,7 +144,7 @@ void MTDCleanup(object oNPC)
       DeleteLocalInt(oNPC,"nMTDChangeArea");
 } // fnMTDCleanup()
 
-int fnHandleStuck(object oNPC,object oDest,int bRun,float fRange,float fTimeout)
+int fnHandleStuck(object oNPC,object oDest,int bRun, float fRange)
 { // PURPOSE: To handle anti-stuck situations
   // LAST MODIFIED BY: Deva Bryson Winblood  6/25/2004
   // rewritten 5/10 last modified 7/01/10 Peak (Peter D Busby)
@@ -184,7 +184,7 @@ int fnHandleStuck(object oNPC,object oDest,int bRun,float fRange,float fTimeout)
       } // transition
     } // handle door
     AssignCommand(oNPC,ClearAllActions(TRUE));
-    AssignCommand(oNPC,ActionForceMoveToObject(oDest,bRun,fRange,fTimeout));//@@@
+    AssignCommand(oNPC,ActionForceMoveToObject(oDest,bRun,fRange));//@@@
     return 0;
   } // first encounter
   int nASR=GetLocalInt(oNPC,"nGNBASR");
@@ -700,7 +700,6 @@ int fnMoveToDestination(object oNPC,object oDest,float fRange=1.0)
   //DebugMove("fLastDist>fRange: "+FloatToString(GetLocalFloat(oNPC,"fLastDist"))+"::"+FloatToString(fRange));
   int nN=0;
   float fDist;
-  float fTimeout;
   object oPWLastDest=GetLocalObject(oNPC,"oPWLastDest");
   if(GetArea(oDest)!=GetArea(oNPC)) SetLocalInt(oNPC,"nMTDChangeArea",1);
   else if(GetLocalInt(oNPC,"nMTDChangeArea"))
@@ -730,7 +729,7 @@ int fnMoveToDestination(object oNPC,object oDest,float fRange=1.0)
         } // still moving
         // may be stuck
         int bRun=(GetLocalInt(oNPC,"nGNBRun")==1);
-        nN=fnHandleStuck(oNPC,oDest,bRun,fRange,fTimeout);
+        nN=fnHandleStuck(oNPC,oDest,bRun,fRange);
         return nN;
       } // not there yet
       if(oPWLastDest==OBJECT_INVALID)
