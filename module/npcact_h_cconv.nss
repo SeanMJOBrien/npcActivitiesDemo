@@ -748,8 +748,8 @@ string fnDMFILangReturn(int nLang,int iTrans,string sLetter)
                 case 36: return "|<";
                 case 11: return "1";
                 case 37: return "1";
-                case 12: return "/\/\";
-                case 38: return "/\/\";
+                case 12: return "/\\/\\";
+                case 38: return "/\\/\\";
                 case 13: return "|\|";
                 case 39: return "|\|";
                 case 14: return "0";

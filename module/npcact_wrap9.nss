@@ -24,39 +24,7 @@ void main()
      int iRace =  GetRacialType(OBJECT_SELF);
      int iGender = GetGender(OBJECT_SELF);
 
-// ***** Give Random Weapon on Spawn In ***** //kalbaern 10/01/08
-    object oItem;
-    int nIntW;
-    nIntW = d3();
-
-    if (nIntW<=1)
-    {CreateItemOnObject("nw_waxhn001", OBJECT_SELF); // Handaxe //resref of weapon to give
-    oItem = GetItemPossessedBy(OBJECT_SELF, "NW_WAXHN001"); //tag of same to make undroppable
-    SetDroppableFlag(oItem, FALSE);}
-    else if (nIntW<=2)
-    {CreateItemOnObject("nw_wswss001", OBJECT_SELF); // Shortsword
-    oItem = GetItemPossessedBy(OBJECT_SELF, "NW_WSWSS001");
-    SetDroppableFlag(oItem, FALSE);}
-    else if (nIntW<=3)
-    {CreateItemOnObject("nw_wblml001", OBJECT_SELF); // Mace
-    oItem = GetItemPossessedBy(OBJECT_SELF, "NW_WBLML001");
-    SetDroppableFlag(oItem, FALSE);
-    }
-// End random weapon
-    ActionEquipMostDamagingMelee(); // Qlippoth equip most damaging
-    SetCreatureBodyPart(CREATURE_PART_HEAD,Random(13)+1,OBJECT_SELF); // Qlippoth
-    SetColor(OBJECT_SELF,COLOR_CHANNEL_SKIN,Random(6)+1); // Qlippoth
-    SetColor(OBJECT_SELF,COLOR_CHANNEL_HAIR,Random(23)+1); // Qlippoth
-// Qlippoth - check for pheno, except if Elf or Dwarf female, appearance manual since I'm probably being specific about those.
-        if (iRace!=RACIAL_TYPE_ELF || iRace!=RACIAL_TYPE_DWARF&&iGender==GENDER_FEMALE)
-             {
-             int iFatroll = d6();
-             if (iFatroll==6)
-                 {
-                 if (GetLocalInt(OBJECT_SELF,"mounted")!=1) SetPhenoType(PHENOTYPE_BIG,OBJECT_SELF);
-                 }
-             }
-// End pheno change
+// Default script, only one addition below. This is for designed creatures that shouldn't get random script items
      SetAILevel(oMe,AI_LEVEL_NORMAL); //Qlippoth, adding to keep NPC running at normal level even if no PCs in game.
 
      string sCRSP=GetLocalString(oMe,"sCRSPSpawn");

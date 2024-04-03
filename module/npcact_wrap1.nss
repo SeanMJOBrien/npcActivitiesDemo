@@ -12,10 +12,6 @@
 void main()
 {
      object oMe=OBJECT_SELF;
-     if (GetLocalInt(oMe, "noheart") > 0)
-     {
-        return;
-     }
      string sCRSP=GetLocalString(oMe,"sCRSPHB");
      string sRTSA=GetLocalString(oMe,"sRTSA_wrap1");
      int nMode=GetLocalInt(oMe,"nWrap_Mode");

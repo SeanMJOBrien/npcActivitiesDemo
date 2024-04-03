@@ -81,6 +81,9 @@ void main()
                 MyPrintString("DetermineCombatRound");
                 SetFacingPoint(GetPosition(oPercep));
                 SpeakString("NW_I_WAS_ATTACKED", TALKVOLUME_SILENT_TALK);
+// Qlippoth - Put don helmet code here. Need to include code for removing as well OnCombatEnd?
+// Also, maybe name and check for that Tag when donning. In case I have a second helmet the NPC drops
+// Find "MyHelm", put on head. Leaves anything else for heads in their inventory.
                 DetermineCombatRound();
             }
         }

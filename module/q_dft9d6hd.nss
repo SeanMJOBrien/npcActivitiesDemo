@@ -327,11 +327,11 @@ void main()
 
 //Qlippoth, removed.
     //* Create a small amount of treasure on the creature
-/*    if ((GetLocalInt(GetModule(), "X2_L_NOTREASURE") == FALSE)  &&
+    if ((GetLocalInt(GetModule(), "X2_L_NOTREASURE") == FALSE)  &&
         (GetLocalInt(OBJECT_SELF, "X2_L_NOTREASURE") == FALSE)   )
     {
         CTG_GenerateNPCTreasure(TREASURE_TYPE_MONSTER, OBJECT_SELF);
-    } */
+    }
 
     // ***** ADD ANY SPECIAL ON-SPAWN CODE HERE ***** //
 

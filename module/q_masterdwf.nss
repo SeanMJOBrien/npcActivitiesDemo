@@ -67,5 +67,5 @@ while(nCount <= nFollowers)
   nCount++;
   }
   //Qlippoth add for treasure, etc.
-//  ExecuteScript("qnw_c2_default9",oSelf);
+  ExecuteScript("qnw_c2_default9",oSelf);
 }
